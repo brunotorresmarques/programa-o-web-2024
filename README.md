@@ -1,1 +1,3 @@
-# programa-o-web-2024
+# Programação Web 2024
+
+Códigos e materiais utilizados na disciplina.
