@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webleb</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body style="display:flex; align-items:center; justify-content:center;">
+    <div class="login-page">
+        <div class="form">
+            <form id="cadastro" class="register-form" method="POST">
+                <h2>Cadastro</h2>
+                <input id="nome" type="text" placeholder="Nome *" required />
+                <input id="email" type="email" placeholder="Email *" required />
+                <input id="senha" type="password" placeholder="Senha *" required />
+                <a id="cadastrar" class="btn" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Cadastrar
+                </a>
+                <p class="message">Já é registrado? <a href="#">Faça Login</a></p>
+            </form>
+            <form class="login-form" method="post">
+                <h2></i> Login</h2>
+                <input id="emailLogin" type="text" placeholder="Email" required />
+                <input id="senhaLogin" type="password" placeholder="Senha" required />
+                <a id="entrar" class="btn" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Entrar
+                </a>
+                <p class="message">Não é cadastrado? <a href="#">Cadastre-se</a></p>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('.message a').click(function () {
+            $('form').animate({ height: "toggle", opacity: "toggle" }, "slow");
+        });
+
+
+        let botaoCadastro = document.getElementById("cadastrar")
+
+        botaoCadastro.addEventListener("click", function () {
+            let nome = document.getElementById("nome").value
+            let email = document.getElementById("email").value
+            let senha = document.getElementById("senha").value
+
+
+            if (!nome || !senha || !email) {
+                alert("Preencha todos os campos!")
+            } else {
+
+                let usuario = {
+                    nome,
+                    email,
+                    senha
+                }
+
+                localStorage.setItem("usuario", JSON.stringify(usuario))
+
+                nome = ""
+                email = ""
+                senha = ""
+
+                alert("Usuário cadastrado com sucesso!")
+
+                window.location.href = "login.html"
+
+            }
+        })
+
+        let botaoEntrar = document.getElementById("entrar")
+
+        botaoEntrar.addEventListener("click", function () {
+
+            let email = document.getElementById("emailLogin").value
+            let senha = document.getElementById("senhaLogin").value
+
+            if(email == "" || senha == ""){
+                alert("Preencha todos os campos")
+            } else {
+                let usuario = localStorage.getItem("usuario")
+                usuario = JSON.parse(usuario)
+                
+                if(usuario.email == email && usuario.senha == senha){
+                    let usuarioLogado = usuario
+                    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
+                    window.location.href = "index.html"
+                } else{
+                    alert("Email ou senha incorreta")
+                    
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

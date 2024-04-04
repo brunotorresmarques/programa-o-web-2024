@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webleb</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body style="display:flex; align-items:center; justify-content:center;">
+    <div class="login-page">
+        <div class="form">
+            <divv class="register-form" method="POST">
+                <h2><i class="fas fa-lock"></i> Cadastro</h2>
+                <input type="text" placeholder="Username *" required />
+                <input type="email" placeholder="Email *" required />
+                <input type="password" placeholder="Password *" required />
+                <button type="text">create</button>
+                <p class="message">Já registrado? <a href="#">Entrar</a></p>
+            </divv>
+            <divv class="login-form" method="post">
+                <h2><i class="fas fa-lock"></i> Login</h2>
+                <input id="login" type="text" placeholder="Username" required />
+                <input id="password" type="password" placeholder="Password" required />
+                <button onclick="login()" type="text" name="send2">login</button>
+                <p class="message">Não registrado? <a href="#">Crie a sua conta aqui</a></p>
+            </divv>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $('.message a').click(function () {
+            $('divv').animate({ height: "toggle", opacity: "toggle" }, "slow");
+        });
+
+        function login() {
+            event.preventDefault();
+            let usuario = document.getElementById("login").value
+            let senha = document.getElementById("password").value
+            if (usuario === "" || senha === "") {
+                alert("Por favor,preencha todos os campos!!!")
+            } else {
+                window.location.href = "../index.html"
+                return
+            }
+        }
+    </script>
+</body>
+
+</html>

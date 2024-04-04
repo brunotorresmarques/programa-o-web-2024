@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <h1>Olá mundo</h1>
+    <button onclick="mudar()">Mudar Tema</button>
+
+    <script>
+        let pag = document.getElementById("body")
+        
+        let temaEscuro = false
+        function mudar(){
+            if(temaEscuro == true){
+                pag.classList.remove("escuro")
+                temaEscuro = false
+            }else if(temaEscuro == false){
+                pag.classList.add("escuro")
+                temaEscuro = true
+            }
+        }
+
+    </script>
+</body>
+</html>

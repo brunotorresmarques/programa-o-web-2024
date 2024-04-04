@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Cadastro de Usuário</h1>
+    <form id="form-cadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br>
+        <label for="login">Login:</label>
+        <input type="text" id="login" name="login" required>
+        <br>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+        <br>
+        <br>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <script>
+        const formCadastro = document.getElementById('form-cadastro');
+
+        formCadastro.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Obter dados do formulário
+            const nome = document.getElementById('nome').value;
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+
+            // Validar dados (opcional)
+            if (!nome || !login || !senha) {
+                alert('Preencha todos os campos!');
+                return;
+            }
+
+            // Criar array com dados do usuário
+            const usuario = {
+                nome,
+                login,
+                senha
+            };
+
+            // Salvar dados no Local Storage
+            localStorage.setItem('usuario', JSON.stringify(usuario));
+
+            // Exibir mensagem de sucesso
+            alert('Usuário cadastrado com sucesso!');
+
+        });
+    </script>
+</body>
+
+</html>

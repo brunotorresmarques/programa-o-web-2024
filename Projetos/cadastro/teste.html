@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nome" type="text" placeholder="Nome">
+    <button id="cadastrar">Cadastrar</button>
+    <script>
+        let botaoCadastro = document.getElementById("cadastrar")
+
+        botaoCadastro.addEventListener("click", function (){
+            let nome = document.getElementById("nome").value 
+
+            let usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+
+            usuarios.push({nome: nome})
+
+            localStorage.setItem("usuarios", JSON.stringify(usuarios))
+        })
+    </script>
+</body>
+
+</html>

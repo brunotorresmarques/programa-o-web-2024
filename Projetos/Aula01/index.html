@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="titulo" class="casa">Olá mundo!</h1>
+
+    <button onclick={traduzir()}>Traduzir</button>
+    <button onclick={mudaCor()}>Muda Cor</button>
+
+    <script>
+        let titulo = document.getElementById("titulo")
+       
+
+        function mudaCor(){
+            titulo.style.color = "red"
+        }
+
+        let ingles = false
+        
+        function traduzir(){
+            if(ingles == false){
+                titulo.innerHTML = "Hello World!"
+                ingles = true
+            } else if(ingles == true){
+                titulo.innerHTML = "Olá Mundo!"
+                ingles = false
+            }
+ 
+        }
+        
+    </script>
+</body>
+</html>

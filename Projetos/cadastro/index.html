@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Seja bem vindo <strong id="nome"></strong></h1>
+    <button id="sair">Sair</button>
+
+    <script>
+        let name = document.getElementById("nome")
+
+        let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+        if(usuarioLogado == null){
+            window.location.href = "login.html"
+        }
+        name.innerHTML = usuarioLogado.nome
+
+        let botaoSair = document.getElementById("sair")
+
+        botaoSair.addEventListener("click", function (){
+            localStorage.removeItem("usuarioLogado")
+            window.location.href = "login.html"
+        })
+    </script>
+</body>
+</html>
