@@ -86,6 +86,11 @@
     <script>
         let formulario = document.getElementById("formCadastro")
 
+        let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+        let usuarios = JSON.parse(localStorage.getItem("usuarios"))
+
+        console.log(usuarioLogado)
+
         formulario.addEventListener("submit", function (event){
             event.preventDefault()
 
@@ -99,8 +104,21 @@
                 descricao
             }
 
-            console.log(anotacao)
-            
+            usuarioLogado.anotacoes.push(anotacao)
+
+            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
+           
+
+            usuarios = usuarios.map(function (user){
+                if(user.email == usuarioLogado.email && user.senha == usuarioLogado.senha){
+                    user.anotacoes.push(anotacao)
+                }
+                return user
+            })
+
+            localStorage.setItem("usuarios", JSON.stringify(usuarios))
+
+            window.location.href = "index.html"
         })
     </script>
 </body>
