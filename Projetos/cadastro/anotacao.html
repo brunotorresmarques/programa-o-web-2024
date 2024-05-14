@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Anotação</title>
+    <style>
+        /* Estilos globais */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2; /* Cor de fundo da página principal */
+        }
+
+        /* Estilos para o formulário de cadastro */
+        .form-cadastro {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff; /* Cor de fundo do formulário */
+        }
+
+        .form-cadastro h2 {
+            color: #333; /* Cor do texto do título do formulário */
+        }
+
+        .form-cadastro label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333; /* Cor do texto das labels */
+        }
+
+        .form-cadastro input[type="date"],
+        .form-cadastro input[type="text"],
+        .form-cadastro textarea {
+            width: calc(100% - 20px); /* Calculando a largura do input */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-cadastro textarea {
+            height: 100px; /* Definindo a altura do textarea */
+        }
+
+        .form-cadastro button[type="submit"],
+        .form-cadastro button[type="button"] {
+            background-color: #4CAF50; /* Cor de fundo do botão */
+            color: white; /* Cor do texto do botão */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px; /* Margem direita para o botão */
+        }
+
+        .form-cadastro button[type="submit"]:hover,
+        .form-cadastro button[type="button"]:hover {
+            background-color: #45a049; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Formulário de Cadastro -->
+    <div class="form-cadastro">
+        <h2>Cadastrar Nova Anotação</h2>
+        <form id="formCadastro">
+            <label for="data">Data:</label>
+            <input type="date" id="data" name="data">
+
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" placeholder="Digite o título">
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" placeholder="Digite a descrição"></textarea>
+
+            <button type="submit">Cadastrar</button>
+            <a href="./index.html"><button type="button" >Voltar</button></a>
+        </form>
+    </div>
+
+    <script>
+        let formulario = document.getElementById("formCadastro")
+
+        formulario.addEventListener("submit", function (event){
+            event.preventDefault()
+
+            let data = document.getElementById("data").value
+            let titulo = document.getElementById("titulo").value
+            let descricao = document.getElementById("descricao").value
+
+            let anotacao = {
+                data,
+                titulo,
+                descricao
+            }
+
+            console.log(anotacao)
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+

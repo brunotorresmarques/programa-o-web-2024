@@ -4,23 +4,218 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Estilos globais */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos para o navbar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            padding: 10px 20px; /* Adicionando padding interno */
+            display: flex; /* Usando flexbox para alinhamento */
+            justify-content: space-between; /* Alinhando elementos à esquerda e à direita */
+            align-items: center; /* Alinhando verticalmente */
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Estilos para o botão Sair */
+        #sair {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px; /* Adicionando margem direita */
+        }
+
+        #sair:hover {
+            background-color: #cc0000;
+        }
+
+        /* Estilos para a tabela */
+        table {
+            border-collapse: collapse;
+            width: 80%; /* Definindo largura da tabela */
+            margin: 100px auto 20px; /* Centralizando a tabela verticalmente e afastando mais do topo */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px; /* Ajustando o padding para o conteúdo */
+            text-align: center; /* Centralizando o texto */
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Estilos para o botão de Excluir */
+        .btn-excluir {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .btn-excluir:hover {
+            background-color: #cc0000;
+        }
+
+        /* Estilos para o botão de Adicionar */
+        .btn-adicionar {
+            background-color: #2196F3; /* Azul */
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Aumentando o padding para tornar o botão maior */
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 50px; /* Afastado da lateral direita */
+            margin-top: 30px; /* Afastado do topo */
+            float: right; /* Flutua à direita */
+        }
+
+        .btn-adicionar:hover {
+            background-color: #1976D2; /* Azul mais escuro ao passar o mouse */
+        }
+
+        /* Estilos para o rodapé */
+        footer {
+            background-color: #333;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer a {
+            color: #f2f2f2;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        footer a i {
+            margin-right: 5px;
+        }
+
+        /* Estilo específico para a coluna de descrição */
+        .col-descricao {
+            width: 30%; /* Defina a largura desejada para a coluna de descrição */
+        }
+
+        /* Estilos para tornar a página responsiva */
+        @media only screen and (max-width: 600px) {
+            .navbar {
+                padding: 5px 10px; /* Reduzindo o padding do navbar */
+            }
+
+            .navbar a {
+                padding: 10px; /* Ajustando o padding dos links do navbar */
+            }
+
+            #sair {
+                padding: 8px 16px; /* Ajustando o padding do botão Sair */
+            }
+
+            .btn-adicionar {
+                padding: 10px 20px; /* Ajustando o padding do botão Adicionar */
+            }
+
+            table {
+                width: 100%; /* Tornando a tabela responsiva */
+            }
+
+            th, td {
+                padding: 5px; /* Ajustando o padding das células da tabela */
+            }
+
+            .col-descricao {
+                width: 40%; /* Ajustando a largura da coluna de descrição */
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Seja bem vindo <strong id="nome"></strong></h1>
-    <button id="sair">Sair</button>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div>
+            <a href="#">Página Inicial</a>
+            <a href="#">Perfil</a>
+        </div>
+        <button id="sair">Sair</button>
+    </div>
+
+    <!-- Botão de Adicionar -->
+    <a href="./anotacao.html"><button class="btn-adicionar" onclick="adicionarItem()">Adicionar</button></a>
+
+    <!-- Tabela -->
+    <table>
+        <tr>
+            <th>Data</th>
+            <th>Título</th>
+            <th class="col-descricao">Descrição</th> <!-- Adicionando a classe col-descricao à coluna de descrição -->
+            <th></th>
+        </tr>
+        <tr>
+            <td>01/05/2024</td>
+            <td>Exemplo 1</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
+            <td><button class="btn-excluir">Excluir</button></td>
+        </tr>
+        <tr>
+            <td>02/05/2024</td>
+            <td>Exemplo 2</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
+            <td><button class="btn-excluir">Excluir</button></td>
+        </tr>
+        <tr>
+            <td>03/05/2024</td>
+            <td>Exemplo 3</td>
+            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
+            <td><button class="btn-excluir">Excluir</button></td>
+        </tr>
+    </table>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Página desenvolvida por Bruno Torres</p>
+        <a href="#"><i class="fab fa-instagram" style="color: #E1306C;"></i>Instagram</a>
+        <a href="#"><i class="fab fa-whatsapp" style="color: #25D366;"></i>WhatsApp</a>
+        <a href="#"><i class="fab fa-linkedin" style="color: #0077B5;"></i>LinkedIn</a>
+        <a href="#"><i class="fab fa-github" style="color: #211F1F;"></i>GitHub</a>
+    </footer>
 
     <script>
-        let name = document.getElementById("nome")
-
         let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-        if(usuarioLogado == null){
+        if (usuarioLogado == null) {
             window.location.href = "login.html"
         }
-        name.innerHTML = usuarioLogado.nome
 
         let botaoSair = document.getElementById("sair")
 
-        botaoSair.addEventListener("click", function (){
+        botaoSair.addEventListener("click", function () {
             localStorage.removeItem("usuarioLogado")
             window.location.href = "login.html"
         })
