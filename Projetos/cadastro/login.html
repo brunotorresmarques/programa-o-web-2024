@@ -51,59 +51,62 @@
         let botaoCadastro = document.getElementById("cadastrar")
 
         botaoCadastro.addEventListener("click", function () {
-            let nome = document.getElementById("nome").value
-            let email = document.getElementById("email").value
-            let senha = document.getElementById("senha").value
-
+            let nome = document.getElementById("nome").value;
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
 
             if (!nome || !senha || !email) {
-                alert("Preencha todos os campos!")
+                alert("Preencha todos os campos!");
             } else {
+                let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-                let usuario = {
-                    nome,
-                    email,
-                    senha,
-                    anotacoes: []
+                // Verifica se o email já está cadastrado
+                let emailExistente = usuarios.find(user => user.email === email);
+                if (emailExistente) {
+                    alert("Email já cadastrado!");
+                } else {
+                    let novoUsuario = {
+                        nome,
+                        email,
+                        senha,
+                        anotacoes: []
+                    };
 
+                    usuarios.push(novoUsuario);
+                    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+                    nome = "";
+                    email = "";
+                    senha = "";
+
+                    alert("Usuário cadastrado com sucesso!");
+                    window.location.href = "login.html";
                 }
-
-                localStorage.setItem("usuario", JSON.stringify(usuario))
-
-                nome = ""
-                email = ""
-                senha = ""
-
-                alert("Usuário cadastrado com sucesso!")
-
-                window.location.href = "login.html"
-
             }
-        })
+        });
+
 
         let botaoEntrar = document.getElementById("entrar")
 
         botaoEntrar.addEventListener("click", function () {
+            let email = document.getElementById("emailLogin").value;
+            let senha = document.getElementById("senhaLogin").value;
 
-            let email = document.getElementById("emailLogin").value
-            let senha = document.getElementById("senhaLogin").value
-
-            if(email == "" || senha == ""){
-                alert("Preencha todos os campos")
+            if (email == "" || senha == "") {
+                alert("Preencha todos os campos");
             } else {
-                let usuario = localStorage.getItem("usuario")
-                usuario = JSON.parse(usuario)
-                
-                if(usuario.email == email && usuario.senha == senha){
-                    let usuarioLogado = usuario
-                    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
-                    window.location.href = "index.html"
-                } else{
-                    alert("Email ou senha incorreta")
-                    
+                let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+                let usuarioLogado = usuarios.find(user => user.email === email && user.senha === senha);
+                if (usuarioLogado) {
+                    localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado));
+                    window.location.href = "index.html";
+                } else {
+                    alert("Email ou senha incorreta");
                 }
             }
-        })
+        });
+
 
     </script>
 </body>
