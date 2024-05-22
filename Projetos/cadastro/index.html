@@ -171,7 +171,7 @@
     <a href="./anotacao.html"><button class="btn-adicionar" onclick="adicionarItem()">Adicionar</button></a>
 
     <!-- Tabela -->
-    <table>
+    <table id="tabela">
         <tr>
             <th>Data</th>
             <th>Título</th>
@@ -184,18 +184,7 @@
             <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
             <td><button class="btn-excluir">Excluir</button></td>
         </tr>
-        <tr>
-            <td>02/05/2024</td>
-            <td>Exemplo 2</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
-            <td><button class="btn-excluir">Excluir</button></td>
-        </tr>
-        <tr>
-            <td>03/05/2024</td>
-            <td>Exemplo 3</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
-            <td><button class="btn-excluir">Excluir</button></td>
-        </tr>
+        
     </table>
 
     <!-- Rodapé -->
@@ -219,6 +208,16 @@
             localStorage.removeItem("usuarioLogado")
             window.location.href = "login.html"
         })
+
+        function carregarDados(){
+            let tabela = document.getElementById("tabela")
+
+            usuarioLogado.anotacoes.map((anotacao) => {
+                let linha = tabela.insertRow()
+            })
+        }
+
+        carregarDados()
     </script>
 </body>
 </html>

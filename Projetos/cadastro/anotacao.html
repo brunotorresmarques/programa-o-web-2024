@@ -87,6 +87,11 @@
         let formulario = document.getElementById("formCadastro")
 
         let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"))
+
+        if(usuarioLogado == null){
+            window.location.href = "./login.html"
+        }
+
         let usuarios = JSON.parse(localStorage.getItem("usuarios"))
 
         console.log(usuarioLogado)
