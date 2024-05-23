@@ -178,12 +178,7 @@
             <th class="col-descricao">Descrição</th> <!-- Adicionando a classe col-descricao à coluna de descrição -->
             <th></th>
         </tr>
-        <tr>
-            <td>01/05/2024</td>
-            <td>Exemplo 1</td>
-            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam aliquet turpis eu justo sodales, at cursus arcu convallis.</td>
-            <td><button class="btn-excluir">Excluir</button></td>
-        </tr>
+        
         
     </table>
 
@@ -214,6 +209,26 @@
 
             usuarioLogado.anotacoes.map((anotacao) => {
                 let linha = tabela.insertRow()
+
+                let colData = linha.insertCell(0)
+                colData.textContent = anotacao.data
+
+                let colTitulo = linha.insertCell(1)
+                colTitulo.textContent = anotacao.titulo
+
+                let colDescricao = linha.insertCell(2) 
+                colDescricao.textContent = anotacao.descricao
+
+                let colBotao = linha.insertCell(3)
+
+                let botao = document.createElement("button")
+                botao.textContent = "Excluir"
+                botao.classList.add("btn-excluir")
+                botao.addEventListener("click", function (){
+                    // Excluir anotação
+                    alert("Botão clicado!!")
+                })
+                colBotao.appendChild(botao)
             })
         }
 
