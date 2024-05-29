@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,14 @@
         .navbar {
             background-color: #333;
             overflow: hidden;
-            padding: 10px 20px; /* Adicionando padding interno */
-            display: flex; /* Usando flexbox para alinhamento */
-            justify-content: space-between; /* Alinhando elementos à esquerda e à direita */
-            align-items: center; /* Alinhando verticalmente */
+            padding: 10px 20px;
+            /* Adicionando padding interno */
+            display: flex;
+            /* Usando flexbox para alinhamento */
+            justify-content: space-between;
+            /* Alinhando elementos à esquerda e à direita */
+            align-items: center;
+            /* Alinhando verticalmente */
         }
 
         .navbar a {
@@ -42,7 +47,8 @@
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            margin-right: 10px; /* Adicionando margem direita */
+            margin-right: 10px;
+            /* Adicionando margem direita */
         }
 
         #sair:hover {
@@ -52,14 +58,19 @@
         /* Estilos para a tabela */
         table {
             border-collapse: collapse;
-            width: 80%; /* Definindo largura da tabela */
-            margin: 100px auto 20px; /* Centralizando a tabela verticalmente e afastando mais do topo */
+            width: 80%;
+            /* Definindo largura da tabela */
+            margin: 100px auto 20px;
+            /* Centralizando a tabela verticalmente e afastando mais do topo */
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
-            padding: 8px; /* Ajustando o padding para o conteúdo */
-            text-align: center; /* Centralizando o texto */
+            padding: 8px;
+            /* Ajustando o padding para o conteúdo */
+            text-align: center;
+            /* Centralizando o texto */
         }
 
         th {
@@ -83,19 +94,25 @@
 
         /* Estilos para o botão de Adicionar */
         .btn-adicionar {
-            background-color: #2196F3; /* Azul */
+            background-color: #2196F3;
+            /* Azul */
             color: white;
             border: none;
-            padding: 15px 30px; /* Aumentando o padding para tornar o botão maior */
+            padding: 15px 30px;
+            /* Aumentando o padding para tornar o botão maior */
             border-radius: 5px;
             cursor: pointer;
-            margin-right: 50px; /* Afastado da lateral direita */
-            margin-top: 30px; /* Afastado do topo */
-            float: right; /* Flutua à direita */
+            margin-right: 50px;
+            /* Afastado da lateral direita */
+            margin-top: 30px;
+            /* Afastado do topo */
+            float: right;
+            /* Flutua à direita */
         }
 
         .btn-adicionar:hover {
-            background-color: #1976D2; /* Azul mais escuro ao passar o mouse */
+            background-color: #1976D2;
+            /* Azul mais escuro ao passar o mouse */
         }
 
         /* Estilos para o rodapé */
@@ -122,41 +139,51 @@
 
         /* Estilo específico para a coluna de descrição */
         .col-descricao {
-            width: 30%; /* Defina a largura desejada para a coluna de descrição */
+            width: 30%;
+            /* Defina a largura desejada para a coluna de descrição */
         }
 
         /* Estilos para tornar a página responsiva */
         @media only screen and (max-width: 600px) {
             .navbar {
-                padding: 5px 10px; /* Reduzindo o padding do navbar */
+                padding: 5px 10px;
+                /* Reduzindo o padding do navbar */
             }
 
             .navbar a {
-                padding: 10px; /* Ajustando o padding dos links do navbar */
+                padding: 10px;
+                /* Ajustando o padding dos links do navbar */
             }
 
             #sair {
-                padding: 8px 16px; /* Ajustando o padding do botão Sair */
+                padding: 8px 16px;
+                /* Ajustando o padding do botão Sair */
             }
 
             .btn-adicionar {
-                padding: 10px 20px; /* Ajustando o padding do botão Adicionar */
+                padding: 10px 20px;
+                /* Ajustando o padding do botão Adicionar */
             }
 
             table {
-                width: 100%; /* Tornando a tabela responsiva */
+                width: 100%;
+                /* Tornando a tabela responsiva */
             }
 
-            th, td {
-                padding: 5px; /* Ajustando o padding das células da tabela */
+            th,
+            td {
+                padding: 5px;
+                /* Ajustando o padding das células da tabela */
             }
 
             .col-descricao {
-                width: 40%; /* Ajustando a largura da coluna de descrição */
+                width: 40%;
+                /* Ajustando a largura da coluna de descrição */
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <div class="navbar">
@@ -178,8 +205,8 @@
             <th class="col-descricao">Descrição</th> <!-- Adicionando a classe col-descricao à coluna de descrição -->
             <th></th>
         </tr>
-        
-        
+
+
     </table>
 
     <!-- Rodapé -->
@@ -192,6 +219,8 @@
     </footer>
 
     <script>
+        let usuarios = JSON.parse(localStorage.getItem("usuarios"))
+
         let usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
         if (usuarioLogado == null) {
             window.location.href = "login.html"
@@ -204,10 +233,10 @@
             window.location.href = "login.html"
         })
 
-        function carregarDados(){
+        function carregarDados() {
             let tabela = document.getElementById("tabela")
 
-            usuarioLogado.anotacoes.map((anotacao) => {
+            usuarioLogado.anotacoes.forEach((anotacao, index) => {
                 let linha = tabela.insertRow()
 
                 let colData = linha.insertCell(0)
@@ -216,7 +245,7 @@
                 let colTitulo = linha.insertCell(1)
                 colTitulo.textContent = anotacao.titulo
 
-                let colDescricao = linha.insertCell(2) 
+                let colDescricao = linha.insertCell(2)
                 colDescricao.textContent = anotacao.descricao
 
                 let colBotao = linha.insertCell(3)
@@ -224,9 +253,21 @@
                 let botao = document.createElement("button")
                 botao.textContent = "Excluir"
                 botao.classList.add("btn-excluir")
-                botao.addEventListener("click", function (){
-                    // Excluir anotação
-                    alert("Botão clicado!!")
+                botao.addEventListener("click", function () {
+                    if (confirm("Deseja realmente excluir?")) {
+                        usuarioLogado.anotacoes.splice(index, 1)
+                        localStorage.setItem("usuarioLogado", JSON.stringify(usuarioLogado))
+
+                        usuarios.forEach((user, index) => {
+                            if (user.email == usuarioLogado.email && user.senha == usuarioLogado.senha) {
+                                usuarios[index] = usuarioLogado
+                            }
+                        })
+                        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+
+                        tabela.deleteRow(linha.rowIndex)
+                    }
+
                 })
                 colBotao.appendChild(botao)
             })
@@ -235,4 +276,5 @@
         carregarDados()
     </script>
 </body>
+
 </html>
