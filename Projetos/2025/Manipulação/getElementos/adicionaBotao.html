@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin-left: 5px;
+            background-color: rgb(4, 4, 136);
+            border: none;
+            padding: 8px;
+            color: white;
+            border-radius: 50%;
+            margin-top: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="1">
+        <button onclick="addBotao()">Botão</button>
+        
+    </div>
+
+    <script>
+        let div = document.getElementById("1")
+        let x = 0
+        function addBotao(){
+            let b = document.createElement("button")
+            b.onclick = addBotao
+            x = x+1
+            b.innerText = "Botão "+x
+            div.append(b)   
+            
+        }
+    </script>
+</body>
+</html>
