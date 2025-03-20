@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .claro{
+            background-color: rgb(40, 216, 255);
+            align-items: center;
+            text-align: center;
+            color: rgb(28, 0, 88);
+        }
+        .escuro{
+            background-color: rgb(28, 0, 88);
+            align-items: center;
+            text-align: center;
+            color: rgb(40, 216, 255);
+        }
+    </style>
+</head>
+<body id="body" class="claro">
+    <h1>Class List</h1>
+    <button onclick="mudarTema()">Tema</button>
+    
+    <script>
+        let tema = 1
+        function mudarTema(){
+            if(tema == 1){
+                body.classList.remove("claro")
+                body.classList.add("escuro")
+                tema = 2
+            } else{
+                tema = 1
+                body.classList.remove("escuro")
+                body.classList.add("claro")
+            }
+ 
+        }
+    </script>
+</body>
+</html>
