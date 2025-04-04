@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cadastro</h1>
+    <input type="text" id="name" placeholder="Nome">
+    <input type="text" id="login" placeholder="Login">
+    <input type="password" id="password" placeholder="Senha">
+    
+    <div>
+        <button onclick="register()">Cadastrar</button>
+        <p>Já tem cadastro? <a href="../login/login.html">Logar</a></p>
+    </div>
+    
+
+    <script>
+        async function register() {
+            let user = {
+                name: document.getElementById("name").value,
+                login: document.getElementById("login").value,
+                password: document.getElementById("password").value
+            }
+
+            await fetch("http://localhost:3000/users", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(user)
+            });
+
+
+        }
+    </script>
+</body>
+
+</html>

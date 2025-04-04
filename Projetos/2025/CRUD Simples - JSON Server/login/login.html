@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <input id="login" type="text" placeholder="Usuário...">
+        <br />
+        <input id="password" type="password" placeholder="Senha...">
+
+        <div>
+            <button onclick="login()">Logar</button>
+            <p>Não tem cadastro? <a href="../cadastro/cadastro.html">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script>
+        async function login() {
+            const login = document.getElementById("login").value;
+            const password = document.getElementById("password").value;
+
+            const res = await fetch(`http://localhost:3000/users?login=${login}&password=${password}`);
+            const users = await res.json();
+            if (users.length > 0) {
+                localStorage.setItem("userId", users[0].id);
+                window.location.href = "../index.html"; // Redireciona
+            } else {
+                alert("Login falhou!");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

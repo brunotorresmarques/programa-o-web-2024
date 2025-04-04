@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "8227",
+      "name": "Bruno Torres Marques",
+      "login": "bruno",
+      "password": "123"
+    },
+    {
+      "id": "1708",
+      "name": "João",
+      "login": "j",
+      "password": "ja"
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "userId": "1708",
+      "date": "2023-11-20",
+      "title": "Reunião",
+      "description": "Com cliente às 14h"
+    },
+    {
+      "id": 2,
+      "userId": "1708",
+      "date": "2025-11-25",
+      "title": "Prova",
+      "description": "Avaliação de Web"
+    }
+  ]
+}

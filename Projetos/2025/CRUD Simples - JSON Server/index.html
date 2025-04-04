@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Página Principal</h1>
+
+    <table border="1" id="notesTable">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+        async function loadNotes() {
+            const userId = localStorage.getItem("userId");
+            const res = await fetch(`http://localhost:3000/notes?userId=${userId}`);
+            const notes = await res.json();
+            const tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = notes.map(note => `
+                <tr>
+                    <td>${note.date}</td>
+                        <td>${note.title}</td>
+                        <td>${note.description}</td>
+                        <td>
+                        <button onclick="deleteNote(${note.id})">Excluir</button>
+                        <button onclick="editNote(${note.id})">Editar</button>
+                    </td>
+                </tr>
+            `).join("");
+        }
+
+        loadNotes()
+    </script>
+</body>
+
+</html>
