@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="entrada" />
+    <button id="add">Adicionar</button>
+    <ul id="tarefas"></ul>
+
+    <script>
+        let lista = document.getElementById("tarefas")
+        let btn = document.getElementById("add")
+
+        tarefas.addEventListener("click", (li) => {
+            if (li.target.tagName === "LI") {
+                let res
+                confirm("Deseja realmente excluir?").then(
+                    li.target.remove()
+                )
+            }
+        });
+
+
+        btn.addEventListener("click", () => {
+            if (entrada.value == "") {
+                alert("preencha o input!")
+            } else {
+                let item = document.createElement("li")
+                item.textContent = document.getElementById("entrada").value
+                lista.appendChild(item)
+                entrada.value = "";
+            }
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .item-class {
+            background-color:blue;
+            color: white;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="lista">
+       <li data-id="123"  class="item-class">Item 1</li>
+
+    </ul>
+
+
+    <script>
+        /*
+        let alunos = ["João", "Maria", "Ana"]
+
+        let lista = document.getElementById("lista")
+
+        for (i = 0; i < alunos.length; i++) {
+
+            let item = document.createElement("li")
+            item.textContent = alunos[i]
+
+            lista.appendChild(item)
+        }
+
+        */
+
+
+        //lista.insertBefore(item, lista.firstChild);
+
+        let lista = document.getElementById("lista")
+
+        lista.addEventListener("click", (event) => {
+            if (event.target.tagName === "LI") {
+                event.target.remove();
+            }
+        });
+
+        let id = elemento.dataset.da;
+        console.log(id)
+
+
+        let item = document.createElement("li")
+        item.textContent = "Novo Item"
+
+        item.classList.add("item-class")
+
+        lista.appendChild(item)
+
+
+    </script>
+</body>
+
+</html>

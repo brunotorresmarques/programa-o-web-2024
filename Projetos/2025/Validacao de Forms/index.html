@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="form" action="">
+        <label for="">Nome:</label>
+        <input type="text" id="nome">
+        
+        <br>
+        <label for="">Senha:</label>
+        <input type="password" id="senha">
+
+
+        <input type="submit" value="Enviar">
+        <br>
+        <span id="mensagem"></span>
+    </form>
+
+    <script>
+        const form = document.getElementById("form")
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let nome = document.getElementById("nome");
+            let senha = document.getElementById("senha");
+
+            if (nome.value === "") {
+                document.getElementById("mensagem").innerText = "O campo nome é obrigatório!"
+            }
+
+            else if (senha.value === "") {
+                document.getElementById("mensagem").innerText = "O campo senha é obrigatório!"
+
+            }
+            else{
+                document.getElementById("mensagem").innerText = ""
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
