@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="nome" type="text" placeholder="Nome">
+    <input id="idade" type="number" min="0" placeholder="Idade">
+    <button onclick="enviar()">Enviar</button>
+    <br>
+    <span id="mensagem"></span>
+
+    <script>
+        class Pessoa{
+           constructor(nome, idade){
+                this.nome = nome
+                this.idade = idade
+           } 
+           apresentar(){
+                return "Olá, meu nome é " + this.nome + " e a minha idade é " + this.idade
+           }
+
+        }
+
+        function enviar(){
+            let nome = document.getElementById("nome").value
+            let idade = document.getElementById("idade").value
+
+            let aluno = new Pessoa(nome, idade)
+
+            let mensagem = document.getElementById("mensagem")
+            mensagem.innerText = aluno.apresentar()
+        }
+    </script>
+</body>
+</html>
